@@ -82,7 +82,7 @@ function App() {
     formData.append("type_model", selectedModels.type);
 
     try {
-      const response = await axios.post("https://huggingface.co/spaces/ChandanDebSan/fauna-classification-redo.hf.space/predict_all", formData, {
+      const response = await axios.post("https://chandandebsan-fauna-classification-redo.hf.space/predict_all", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResults(response.data);
