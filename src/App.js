@@ -9,10 +9,33 @@ const MODEL_OPTIONS = {
   type: ["VIT Transformer", "EfficientNetV2-B3", "EfficientNetV2-B1", "DenseNet", "ResNet50"]
 };
 
+
+// --- NEW: Team Data ---
+const CONTRIBUTORS = [
+  {
+    name: "Chandan Deb",
+    role: "Full Stack & Conservation Classifier",
+    image: "https://media.licdn.com/dms/image/v2/D5635AQEGENqLr20Yiw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1718954032088?e=1766242800&v=beta&t=2ona6GT38q4HIt4ZbdmOyFNe8kTHwlMj6FuvX3rJr6I", // Replace with real photo URL
+    tasks: ["Trained Conservation Models", "Built Backend API", "Built Frontend UI"]
+  },
+  {
+    name: "Ansh Goel",
+    role: "Species Classifier",
+    image: "https://media.licdn.com/dms/image/v2/D4E35AQGII6mGfGmK5Q/profile-framedphoto-shrink_400_400/B4EZUO2R2KHcAc-/0/1739710865103?e=1766242800&v=beta&t=tWeRZeHrJQzlnzZmZvEa5xDrGckNxxj0bdZ1MB6VDn4", // Replace with real photo URL
+    tasks: ["Trained Species Models", "Built Dataset"]
+  },
+  {
+    name: "Utkarsh Singh",
+    role: "Mammal Type Classifier",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQHBPUAHkLCnsA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719409435506?e=1767225600&v=beta&t=NI_rgC-GzDF-R2I2HDd4OwqADBb7_xjUVJThkzlf2fc", // Replace with real photo URL
+    tasks: ["Trained Mammal Classifiers", "Built Dataset"]
+  }
+];
+
 function App() {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
-  
+  const [error, setError] = useState("");
   const [selectedModels, setSelectedModels] = useState({
     species: MODEL_OPTIONS.species[0],
     conservation: MODEL_OPTIONS.conservation[0],
@@ -35,11 +58,19 @@ function App() {
       setFile(selected);
       setPreview(URL.createObjectURL(selected));
       setResults(null);
+      setError("");
     }
   };
 
   const handleSubmit = async () => {
-    if (!file) return alert("Please upload an image first.");
+    if (!file) {
+      setError("Please upload an image before analyzing.");
+      return; 
+    }
+
+    setLoading(true);
+    setResults(null);
+    setError(""); // Clear any previous errors
 
     setLoading(true);
     setResults(null);
@@ -51,7 +82,7 @@ function App() {
     formData.append("type_model", selectedModels.type);
 
     try {
-      const response = await axios.post("http://localhost:8000/predict_all", formData, {
+      const response = await axios.post("https://huggingface.co/spaces/ChandanDebSan/fauna-classification-redo.hf.space/predict_all", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResults(response.data);
@@ -80,6 +111,25 @@ function App() {
     border: "none", borderRadius: "8px", fontSize: "1rem", fontWeight: "600",
     cursor: loading ? "not-allowed" : "pointer", transition: "background-color 0.2s"
   };
+
+  const errorStyle = { 
+  color: "#ef4444", 
+  backgroundColor: "#fef2f2", 
+  border: "1px solid #fecaca", 
+  padding: "10px", 
+  borderRadius: "6px", 
+  marginTop: "15px",
+  textAlign: "center",
+  fontSize: "0.9rem",
+  fontWeight: "600"
+};
+//  Styles for Team Section 
+  const teamSectionStyle = { marginTop: "80px", paddingTop: "40px", borderTop: "1px solid #e2e8f0" };
+  const teamGridStyle = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "25px", marginTop: "30px" };
+  const teamCardStyle = { ...cardStyle, textAlign: "center", padding: "30px 20px" };
+  const avatarStyle = { width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover", marginBottom: "15px", border: "4px solid #e1f5f9" };
+  const roleStyle = { color: "#2563eb", fontWeight: "600", fontSize: "0.9rem", marginBottom: "15px", display: "block" };
+  const tagStyle = { display: "inline-block", backgroundColor: "#f1f5f9", color: "#475569", padding: "4px 8px", borderRadius: "4px", fontSize: "0.75rem", margin: "3px" };
 
   // Helper to render a result card 
   const renderResultCard = (category, data) => {
@@ -186,6 +236,34 @@ function App() {
            </div>
         </div>
       )}
+
+    
+
+    {/* Contributors Section*/}
+      <div style={teamSectionStyle}>
+        <h2 style={{ textAlign: "center", color: "#334155", marginBottom: "10px" }}>Meet the Team</h2>
+        <p style={{ textAlign: "center", color: "#64748b", maxWidth: "600px", margin: "0 auto" }}>
+          The machine learning engineers and developers behind the Fauna Classifier.
+        </p>
+
+        <div style={teamGridStyle}>
+          {CONTRIBUTORS.map((person, index) => (
+            <div key={index} style={teamCardStyle}>
+              <img src={person.image} alt={person.name} style={avatarStyle} />
+              <h3 style={{ margin: "0 0 5px 0", color: "#1e293b" }}>{person.name}</h3>
+              <span style={roleStyle}>{person.role}</span>
+              
+              <div style={{ marginTop: "10px" }}>
+                {person.tasks.map((task, i) => (
+                  <span key={i} style={tagStyle}>
+                    {task}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
     </div>
   );
