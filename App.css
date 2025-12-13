@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Container for the whole meter */
+.meter-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+}
+
+/* The label text (e.g. "Confidence: 99%") */
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* The grey background track */
+.meter-track {
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden; /* Ensures the inner bar doesn't spill out */
+}
+
+/* The colored fill bar */
+.meter-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease-in-out, background-color 0.3s;
+  /* Optional: Add a subtle stripe effect */
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
