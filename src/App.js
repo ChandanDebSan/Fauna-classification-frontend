@@ -15,19 +15,22 @@ const CONTRIBUTORS = [
   {
     name: "Chandan Deb",
     role: "Full Stack & Conservation Classifier",
-    image: "https://media.licdn.com/dms/image/v2/D5635AQEGENqLr20Yiw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1718954032088?e=1766242800&v=beta&t=2ona6GT38q4HIt4ZbdmOyFNe8kTHwlMj6FuvX3rJr6I", // Replace with real photo URL
+    image: "../public/photos/chandan.png",
+    linkedin: "https://www.linkedin.com/in/chandan-deb-a24a8126a/", // Replace with actual LinkedIn URL
     tasks: ["Trained Conservation Models", "Built Backend API", "Built Frontend UI"]
   },
   {
     name: "Ansh Goel",
     role: "Species Classifier",
-    image: "https://media.licdn.com/dms/image/v2/D4E35AQGII6mGfGmK5Q/profile-framedphoto-shrink_400_400/B4EZUO2R2KHcAc-/0/1739710865103?e=1766242800&v=beta&t=tWeRZeHrJQzlnzZmZvEa5xDrGckNxxj0bdZ1MB6VDn4", // Replace with real photo URL
+    image: "../public/photos/ansh.png",
+    linkedin: "https://www.linkedin.com/in/ansh-goel-9a0a992b9/", // Replace with actual LinkedIn URL
     tasks: ["Trained Species Models", "Built Dataset"]
   },
   {
     name: "Utkarsh Singh",
     role: "Mammal Type Classifier",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQHBPUAHkLCnsA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719409435506?e=1767225600&v=beta&t=NI_rgC-GzDF-R2I2HDd4OwqADBb7_xjUVJThkzlf2fc", // Replace with real photo URL
+    image: "../public/photos/utkarsh.png",
+    linkedin: "https://www.linkedin.com/in/ut-singh/", // Replace with actual LinkedIn URL
     tasks: ["Trained Mammal Classifiers", "Built Dataset"]
   }
 ];
@@ -250,7 +253,30 @@ function App() {
           {CONTRIBUTORS.map((person, index) => (
             <div key={index} style={teamCardStyle}>
               <img src={person.image} alt={person.name} style={avatarStyle} />
-              <h3 style={{ margin: "0 0 5px 0", color: "#1e293b" }}>{person.name}</h3>
+              <h3 style={{ margin: "0 0 5px 0", color: "#1e293b" }}>
+                <a 
+                  href={person.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="team-member-link"
+                  style={{
+                    color: "#1e293b",
+                    textDecoration: "none",
+                    transition: "color 0.3s ease, transform 0.2s ease",
+                    display: "inline-block"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "#2563eb";
+                    e.target.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "#1e293b";
+                    e.target.style.transform = "translateY(0)";
+                  }}
+                >
+                  {person.name}
+                </a>
+              </h3>
               <span style={roleStyle}>{person.role}</span>
               
               <div style={{ marginTop: "10px" }}>
