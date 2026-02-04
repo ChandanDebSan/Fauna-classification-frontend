@@ -2,8 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import ConfidenceMeter from './confidence_meter'; 
 import chandanImg from "./assets/team/chandan.jpg";
-import anshImg from "./assets/team/ansh.png";
-import utkarshImg from "./assets/team/utkarsh.png";
+import anshImg from "./assets/team/ansh.jpg";
+import utkarshImg from "./assets/team/utkarsh.jpg";
 // Options for each category
 const MODEL_OPTIONS = {
   species: ["ViT Transformer", "Dino V2 Base", "Swin Base Transformer", "Swin Small Transformer"],
