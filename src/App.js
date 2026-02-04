@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 import ConfidenceMeter from './confidence_meter'; 
-
+import chandanImg from "./assets/team/chandan.jpg";
+import anshImg from "./assets/team/ansh.png";
+import utkarshImg from "./assets/team/utkarsh.png";
 // Options for each category
 const MODEL_OPTIONS = {
   species: ["ViT Transformer", "Dino V2 Base", "Swin Base Transformer", "Swin Small Transformer"],
@@ -15,21 +17,21 @@ const CONTRIBUTORS = [
   {
     name: "Chandan Deb",
     role: "Full Stack & Conservation Classifier",
-    image: "/photos/chandan.png",
+    image: chandanImg,
     linkedin: "https://www.linkedin.com/in/chandan-deb-a24a8126a/", // Replace with actual LinkedIn URL
     tasks: ["Trained Conservation Models", "Built Backend API", "Built Frontend UI"]
   },
   {
     name: "Ansh Goel",
     role: "Species Classifier",
-    image: "/public/photos/ansh.png",
+    image: anshImg,
     linkedin: "https://www.linkedin.com/in/ansh-goel-9a0a992b9/", // Replace with actual LinkedIn URL
     tasks: ["Trained Species Models", "Built Dataset"]
   },
   {
     name: "Utkarsh Singh",
     role: "Mammal Type Classifier",
-    image: "/public/photos/utkarsh.png",
+    image: utkarshImg,
     linkedin: "https://www.linkedin.com/in/ut-singh/", // Replace with actual LinkedIn URL
     tasks: ["Trained Mammal Classifiers", "Built Dataset"]
   }

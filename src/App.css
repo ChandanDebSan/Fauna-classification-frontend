@@ -86,7 +86,7 @@ body::before {
   position: fixed;
   inset: 0;
   background: rgba(255, 255, 255, 0.42); /* soft white glass */
-  backdrop-filter: blur(2px);            /* modern glass effect */
+  backdrop-filter: blur(3px);            /* modern glass effect */
   z-index: -1;
 }
 
@@ -94,7 +94,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-image: url('/public/photos/bg-2.jpg');
+  background-image: url('/public/photos/bg.png');
   background-size: cover;          /* Fill screen */
   background-position: center;     /* Center focal point */
   background-repeat: no-repeat;
