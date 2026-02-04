@@ -41,6 +41,7 @@ const CONTRIBUTORS = [
     role: "Mentor and Project Guide",
     image: sirImg,
     linkedin: "https://www.linkedin.com/in/rahulsharma2612/", // Replace with actual LinkedIn URL
+    tasks: []
   }
 ];
 
