@@ -75,8 +75,7 @@ function App() {
     setResults(null);
     setError(""); // Clear any previous errors
 
-    setLoading(true);
-    setResults(null);
+  
 
     const formData = new FormData();
     formData.append("file", file);
@@ -209,6 +208,7 @@ function App() {
             <button onClick={handleSubmit} disabled={loading} style={buttonStyle}>
               {loading ? "Running 3x Analysis..." : "Analyze All"}
             </button>
+            {error && <div style={errorStyle}>{error}</div>}
           </div>
 
           {/* Results Cards */}
