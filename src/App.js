@@ -4,6 +4,7 @@ import ConfidenceMeter from './confidence_meter';
 import chandanImg from "./assets/team/chandan.jpg";
 import anshImg from "./assets/team/ansh.jpg";
 import utkarshImg from "./assets/team/utkarsh.jpg";
+import sirImg from "./assets/team/sirImg.png";
 // Options for each category
 const MODEL_OPTIONS = {
   species: ["ViT Transformer", "Dino V2 Base", "Swin Base Transformer", "Swin Small Transformer"],
@@ -34,6 +35,12 @@ const CONTRIBUTORS = [
     image: utkarshImg,
     linkedin: "https://www.linkedin.com/in/ut-singh/", // Replace with actual LinkedIn URL
     tasks: ["Trained Mammal Classifiers", "Built Dataset"]
+  },
+  {
+    name: "Dr Rahul Sharma",
+    role: "Mentor and Project Guide",
+    image: sirImg,
+    linkedin: "https://www.linkedin.com/in/rahulsharma2612/", // Replace with actual LinkedIn URL
   }
 ];
 
