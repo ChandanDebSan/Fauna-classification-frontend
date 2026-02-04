@@ -247,7 +247,7 @@ function App() {
     {/* Contributors Section*/}
       <div style={teamSectionStyle}>
         <h2 style={{ textAlign: "center", color: "#334155", marginBottom: "10px" }}>Meet the Team</h2>
-        <p style={{ textAlign: "center", color: "#64748b", maxWidth: "600px", margin: "0 auto" }}>
+        <p style={{ textAlign: "center", color: "#334155", maxWidth: "600px", margin: "0 auto" }}>
           The machine learning engineers and developers behind the Fauna Classifier.
         </p>
 
