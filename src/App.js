@@ -15,21 +15,21 @@ const CONTRIBUTORS = [
   {
     name: "Chandan Deb",
     role: "Full Stack & Conservation Classifier",
-    image: "../public/photos/chandan.png",
+    image: "/photos/chandan.png",
     linkedin: "https://www.linkedin.com/in/chandan-deb-a24a8126a/", // Replace with actual LinkedIn URL
     tasks: ["Trained Conservation Models", "Built Backend API", "Built Frontend UI"]
   },
   {
     name: "Ansh Goel",
     role: "Species Classifier",
-    image: "../public/photos/ansh.png",
+    image: "/public/photos/ansh.png",
     linkedin: "https://www.linkedin.com/in/ansh-goel-9a0a992b9/", // Replace with actual LinkedIn URL
     tasks: ["Trained Species Models", "Built Dataset"]
   },
   {
     name: "Utkarsh Singh",
     role: "Mammal Type Classifier",
-    image: "../public/photos/utkarsh.png",
+    image: "/public/photos/utkarsh.png",
     linkedin: "https://www.linkedin.com/in/ut-singh/", // Replace with actual LinkedIn URL
     tasks: ["Trained Mammal Classifiers", "Built Dataset"]
   }
